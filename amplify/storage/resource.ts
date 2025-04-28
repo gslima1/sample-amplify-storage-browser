@@ -14,10 +14,7 @@ export const storage = defineStorage({
     ],
     'private/{entity_id}/*': [
         allow.entity('identity').to(['read', 'write', 'delete'])
-    ],
-    'customer1/*': [
-        allow.groups(['customer2']).to(['read', 'write', 'delete'])
-    ]    
+    ]
    })
 });
 
