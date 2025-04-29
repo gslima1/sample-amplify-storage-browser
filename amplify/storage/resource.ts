@@ -18,7 +18,7 @@ export const storage = defineStorage({
     'customer1/{entity_id}/*': [
         allow.groups(['customer1']).to(['read', 'write', 'delete']),        
         allow.entity('identity').to(['read', 'write', 'delete'])
-    ]  
+    ],  
     'customer2/*': [
         allow.groups(['customer2']).to(['read', 'write'])
     ]        
