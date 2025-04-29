@@ -4,6 +4,7 @@ import {
 } from '@aws-amplify/ui-react-storage/browser';
 import '@aws-amplify/ui-react-storage/styles.css';
 import './App.css';
+import { fetchUserAttributes } from 'aws-amplify/auth';
 
 import config from '../amplify_outputs.json';
 import { Amplify } from 'aws-amplify';
@@ -15,12 +16,15 @@ const { StorageBrowser } = createStorageBrowser({
 });
 
 function App() {
+
+  const userAttributes = await fetchUserAttributes();
+
   return (
     <Authenticator>
       {({ signOut, user }) => (
         <>
           <div className="header">
-            <h1>{`Hello ${user?.userId}`}</h1>
+            <h1>{`Hello ${userAttributes.name}`}</h1>
             <Button onClick={signOut}>Sign out</Button>
           </div>
           <StorageBrowser />
